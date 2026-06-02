@@ -1,0 +1,152 @@
+{
+  "snapshot_date": "2025-09-30",
+  "capacity_rule": "Threshold chosen from validation set with max positive rate <= 30%.",
+  "model_comparison_validation": [
+    {
+      "model_name": "logistic_regression",
+      "model_family": "baseline",
+      "threshold": 0.5,
+      "accuracy": 0.8155,
+      "roc_auc": 0.8827,
+      "pr_auc": 0.8676,
+      "precision": 0.8058,
+      "recall": 0.7619,
+      "f1": 0.7832,
+      "positive_rate": 0.4137,
+      "tn": 162,
+      "fp": 27,
+      "fn": 35,
+      "tp": 112
+    },
+    {
+      "model_name": "hist_gradient_boosting",
+      "model_family": "stronger challenger",
+      "threshold": 0.5,
+      "accuracy": 0.7976,
+      "roc_auc": 0.876,
+      "pr_auc": 0.8573,
+      "precision": 0.7687,
+      "recall": 0.7687,
+      "f1": 0.7687,
+      "positive_rate": 0.4375,
+      "tn": 155,
+      "fp": 34,
+      "fn": 34,
+      "tp": 113
+    }
+  ],
+  "selected_model": "logistic_regression",
+  "selected_threshold": 0.705,
+  "validation_metrics": {
+    "threshold": 0.705,
+    "accuracy": 0.7946,
+    "roc_auc": 0.8827,
+    "pr_auc": 0.8676,
+    "precision": 0.89,
+    "recall": 0.6054,
+    "f1": 0.7206,
+    "positive_rate": 0.2976,
+    "tn": 178,
+    "fp": 11,
+    "fn": 58,
+    "tp": 89
+  },
+  "test_metrics": {
+    "threshold": 0.705,
+    "accuracy": 0.7649,
+    "roc_auc": 0.8845,
+    "pr_auc": 0.8778,
+    "precision": 0.8803,
+    "recall": 0.6131,
+    "f1": 0.7228,
+    "positive_rate": 0.3482,
+    "tn": 154,
+    "fp": 14,
+    "fn": 65,
+    "tp": 103
+  },
+  "top_positive_risk_drivers": [
+    {
+      "feature": "num__recency_days",
+      "coefficient": 1.7222
+    },
+    {
+      "feature": "num__return_rate_180d",
+      "coefficient": 0.344
+    },
+    {
+      "feature": "num__negative_ticket_rate_90d",
+      "coefficient": 0.301
+    },
+    {
+      "feature": "num__avg_discount_pct_180d",
+      "coefficient": 0.2939
+    },
+    {
+      "feature": "num__last_visit_days_ago",
+      "coefficient": 0.2912
+    },
+    {
+      "feature": "cat__preferred_category_Baby Care",
+      "coefficient": 0.2662
+    },
+    {
+      "feature": "cat__preferred_category_Skin Care",
+      "coefficient": 0.1825
+    },
+    {
+      "feature": "cat__loyalty_tier_Silver",
+      "coefficient": 0.1755
+    },
+    {
+      "feature": "cat__acquisition_channel_Google Search",
+      "coefficient": 0.1525
+    },
+    {
+      "feature": "num__category_diversity_180d",
+      "coefficient": 0.1321
+    }
+  ],
+  "top_negative_risk_drivers": [
+    {
+      "feature": "num__monetary_180d",
+      "coefficient": -0.4321
+    },
+    {
+      "feature": "cat__preferred_category_Fragrance",
+      "coefficient": -0.3864
+    },
+    {
+      "feature": "cat__acquisition_channel_Organic",
+      "coefficient": -0.3841
+    },
+    {
+      "feature": "num__ticket_count_90d",
+      "coefficient": -0.3065
+    },
+    {
+      "feature": "cat__loyalty_tier_Platinum",
+      "coefficient": -0.2839
+    },
+    {
+      "feature": "num__sessions_30d",
+      "coefficient": -0.2032
+    },
+    {
+      "feature": "num__frequency_180d",
+      "coefficient": -0.1765
+    },
+    {
+      "feature": "num__campaign_clicks_30d",
+      "coefficient": -0.1713
+    },
+    {
+      "feature": "cat__marketing_consent_Yes",
+      "coefficient": -0.1382
+    },
+    {
+      "feature": "cat__preferred_category_Hair Care",
+      "coefficient": -0.1364
+    }
+  ]
+}
