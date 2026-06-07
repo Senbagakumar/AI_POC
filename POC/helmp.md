@@ -17,7 +17,9 @@ From the repository root:
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate -> Linux
+.venv\Scripts\activate --> Windows
+
 ```
 
 Then install the requirements for the part you want to run.
@@ -29,6 +31,13 @@ Then install the requirements for the part you want to run.
 ```bash
 cd PART_1
 pip install -r requirements.txt
+
+For windows
+python -m pip install -r requirements.txt
+
+if you are getting any error 
+python -m pip install --upgrade pip setuptools wheel
+
 ```
 
 ### Run
@@ -51,6 +60,10 @@ These files should exist after the run:
 ```bash
 ls
 ls charts | wc -l
+
+For windows
+dir
+dir charts /A:-D /B | find /c /v ""
 ```
 
 Expected:
@@ -65,6 +78,9 @@ Expected:
 ```bash
 cd PART_2
 pip install -r requirements.txt
+
+For windows
+python -m pip install -r requirements.txt
 ```
 
 ### Run
@@ -89,6 +105,12 @@ These files should exist after the run:
 ls
 head -n 5 segments.csv
 wc -l segments.csv
+
+for windows
+dir
+for /f "tokens=*" %i in (segments.csv) do @echo %i & set /a c+=1 & if %c%==5 goto :eof
+find /c /v "" segments.csv
+
 ```
 
 Expected:
@@ -104,6 +126,10 @@ Expected:
 ```bash
 cd PART_3
 pip install -r requirements.txt
+
+For windows
+python -m pip install -r requirements.txt
+
 ```
 
 ### Run
@@ -140,6 +166,14 @@ print("selected_model:", metrics["selected_model"])
 print("selected_threshold:", metrics["selected_threshold"])
 print("test_f1:", metrics["test_metrics"]["f1"])
 PY
+
+
+
+for windows
+dir
+
+python -c "import json,joblib;artifact=joblib.load('model.pkl');metrics=json.load(open('metrics.json'));print('model_name:',artifact['model_name']);print('threshold:',round(float(artifact['threshold']),4));print('feature_count:',len(artifact['feature_columns']));print('selected_model:',metrics['selected_model']);print('selected_threshold:',metrics['selected_threshold']);print('test_f1:',metrics['test_metrics']['f1'])
+
 ```
 
 Expected:
@@ -155,7 +189,11 @@ Expected:
 ```bash
 cd PART_4
 pip install -r requirements.txt
+
+For windows
+python -m pip install -r requirements.txt
 ```
+cls
 
 ### Build The Model Artifact
 
@@ -192,6 +230,7 @@ In another terminal:
 
 ```bash
 curl http://127.0.0.1:8000/health
+
 ```
 
 ```bash
